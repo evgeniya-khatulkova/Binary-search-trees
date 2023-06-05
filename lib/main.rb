@@ -5,4 +5,14 @@ require_relative 'comparable'
  boom = Node.new(3)
  p Tree.new([1, 5, 6])
 
-p look.equal_data(boom)
+p boom.bigger?(look)
+
+
+arr = [0, 1, 3, 2, 4, 5, 2, 11, 9, 23, 22, 45, 56, -1, 55, 89, 112, 223]
+
+loop = Tree.new
+
+loop.build_tree(arr)
+
+p loop
+loop.pretty_print

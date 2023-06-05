@@ -12,7 +12,7 @@ class Tree
     mid = (start + finish) / 2
     current = Node.new(arr[mid])
     @root = current if @root.nil?
-    if start > finish
+    if start >= finish
       return nil
     else
       current.left_node = build_tree(arr, start, mid - 1)

@@ -18,5 +18,5 @@ p loop
 loop.pretty_print
 
 p "*****************************************************"
-loop.insert(224)
+loop.insert(17)
 loop.pretty_print

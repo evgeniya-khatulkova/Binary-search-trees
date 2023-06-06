@@ -1,5 +1,4 @@
 class Tree
-
   attr_accessor :arr, :root
 
   def initialize(arr = [])
@@ -37,6 +36,18 @@ class Tree
   end
 
   def delete(some_node)
+  end
+
+  def find(value)
+    current_node = @root
+    until current_node.nil?
+      if current_node.equal_data?(value)
+        return current_node
+      else
+        current_node.bigger?(value) ? current_node = current_node.left_node : current_node = current_node.right_node
+      end
+    end
+    nil
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)

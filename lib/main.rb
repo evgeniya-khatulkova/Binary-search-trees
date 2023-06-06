@@ -8,7 +8,7 @@ require_relative 'comparable'
 # p boom.bigger?(look)
 
 
-arr = [0, 1, 3, 2, 4, 5, 2, 11, 9, 23, 22, 45, 56, -1, 55, 89, 112, 223]
+arr = [0, 1, 3, 2, 4]
 
 loop = Tree.new
 
@@ -20,3 +20,6 @@ loop.pretty_print
 p "*****************************************************"
 loop.insert(17)
 loop.pretty_print
+
+p loop.find(17)
+p loop.find(222)

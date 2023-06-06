@@ -1,6 +1,6 @@
 module Comparable
   def equal_data?(node_compare)
-    self.data == node_compare.data ? true : false
+    @data == node_compare ? true : false
   end
 
   def bigger?(node_compare)

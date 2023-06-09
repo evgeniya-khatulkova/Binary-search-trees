@@ -11,7 +11,7 @@ class Tree
     mid = (start + finish) / 2
     current = Node.new(arr[mid])
     @root = current if @root.nil?
-    if start >= finish
+    if start > finish
       return nil
     else
       current.left_node = build_tree(arr, start, mid - 1)
@@ -35,9 +35,6 @@ class Tree
     previous_node.bigger?(some_node) ? previous_node.left_node = Node.new(some_node) : previous_node.right_node = Node.new(some_node)
   end
 
-  def delete(some_node)
-  end
-
   def find(value)
     current_node = @root
     until current_node.nil?
@@ -48,6 +45,38 @@ class Tree
       end
     end
     nil
+  end
+
+  def delete(some_node)
+    current_node = @root
+    previous_node = current_node
+    until current_node.equal_data?(some_node)
+      previous_node = current_node
+      if current_node.bigger?(some_node)
+        current_node = current_node.left_node
+      else
+        current_node = current_node.right_node
+      end
+    end
+    if current_node.left_node.nil? && current_node.right_node.nil?
+      previous_node.left_node == current_node ? previous_node.left_node = nil : previous_node.right_node = nil
+    elsif current_node.left_node != nil && current_node.right_node != nil
+      new_node = current_node.right_node
+      previous_next = current_node.right_node
+      if !new_node.left_node.nil?
+        until new_node.left_node.nil?
+          previous_next = new_node
+          new_node = new_node.left_node
+        end
+      else
+        previous_next = current_node
+        new_node = current_node.left_node
+      end
+      current_node.data = new_node.data
+      previous_next.left_node = nil
+    else
+      !current_node.left_node.nil? ? previous_node.right_node = current_node.left_node : previous_node.right_node = current_node.right_node
+    end
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)

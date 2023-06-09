@@ -5,10 +5,7 @@ require_relative 'comparable'
  boom = Node.new(3)
  p Tree.new([1, 5, 6])
 
-# p boom.bigger?(look)
-
-
-arr = [0, 1, 3, 2, 4]
+arr = [0, 1, 3, 2, 4, 8, 21, 13]
 
 loop = Tree.new
 
@@ -18,8 +15,9 @@ p loop
 loop.pretty_print
 
 p "*****************************************************"
-loop.insert(17)
-loop.pretty_print
 
-p loop.find(17)
-p loop.find(222)
+# p loop.insert(15)
+
+
+loop.delete(0)
+loop.pretty_print

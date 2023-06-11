@@ -87,6 +87,21 @@ class Tree
     arr.empty? ? return : level_order(arr.shift, arr)
   end
 
+  def inorder(current = @root, arr = [], &block)
+    return if current.nil?
+    yield(current) if block_given?
+    arr << current.data
+    inorder(current.left_node, arr, &block)
+    inorder(current.right_node, arr, &block)
+    arr
+  end
+
+  def preorder
+  end
+
+  def postorder
+  end
+
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right_node, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right_node
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"

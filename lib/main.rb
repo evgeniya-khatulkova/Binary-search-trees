@@ -22,4 +22,7 @@ p "*****************************************************"
 # loop.delete(0)
 loop.pretty_print
 
-loop.level_order { |element| puts " #{element.data} ->" }
+# loop.level_order { |element| puts " #{element.data} ->" }
+
+p loop.inorder
+loop.inorder{ |element| puts " #{element} ->" }

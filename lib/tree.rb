@@ -117,6 +117,20 @@ class Tree
     arr
   end
 
+  def depth(value)
+    current_node = @root
+    sum = 0
+    until current_node.nil?
+      if current_node.equal_data?(value)
+        return sum
+      else
+        current_node.bigger?(value) ? current_node = current_node.left_node : current_node = current_node.right_node
+        sum += 1
+      end
+    end
+    sum
+  end
+
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right_node, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right_node
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"

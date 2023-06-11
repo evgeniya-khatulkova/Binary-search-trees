@@ -27,3 +27,5 @@ loop.pretty_print
 p loop.postorder
 # loop.inorder{ |element| puts " #{element} ->" }
 loop.postorder{ |element| puts " #{element.data} ->" }
+
+p loop.depth(3)

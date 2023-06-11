@@ -6,5 +6,4 @@ module Comparable
   def bigger?(node_compare)
     @data > node_compare ? true : false
   end
-
 end

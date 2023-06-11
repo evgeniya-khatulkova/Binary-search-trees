@@ -19,5 +19,7 @@ p "*****************************************************"
 # p loop.insert(15)
 
 
-loop.delete(0)
+# loop.delete(0)
 loop.pretty_print
+
+loop.level_order { |element| puts " #{element.data} ->" }

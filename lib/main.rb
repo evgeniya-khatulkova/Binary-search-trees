@@ -24,6 +24,6 @@ loop.pretty_print
 
 # loop.level_order { |element| puts " #{element.data} ->" }
 
-p loop.preorder
+p loop.postorder
 # loop.inorder{ |element| puts " #{element} ->" }
-loop.preorder{ |element| puts " #{element.data} ->" }
+loop.postorder{ |element| puts " #{element.data} ->" }

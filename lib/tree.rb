@@ -107,7 +107,14 @@ class Tree
     arr
   end
 
-  def postorder
+  def postorder(current = @root, arr = [], &block)
+    return if current.nil?
+
+    postorder(current.left_node, arr, &block)
+    postorder(current.right_node, arr, &block)
+    yield(current) if block_given?
+    arr << current.data
+    arr
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)

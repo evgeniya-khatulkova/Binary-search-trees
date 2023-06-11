@@ -131,6 +131,13 @@ class Tree
     sum
   end
 
+  def height(node, sum = 0)
+    return sum if node.nil?
+    return 0 if node.right_node.nil? && node.left_node.nil?
+    height(node.left_node, sum + 1)
+    height(node.right_node, sum + 1)
+  end
+
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right_node, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right_node
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"

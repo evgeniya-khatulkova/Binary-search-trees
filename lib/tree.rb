@@ -145,6 +145,11 @@ class Tree
     return false
   end
 
+  def rebalance
+    new_array = self.inorder
+    self.build_tree(new_array)
+  end
+
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right_node, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right_node
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"

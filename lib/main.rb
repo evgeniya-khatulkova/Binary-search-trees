@@ -34,4 +34,4 @@ loop.pretty_print
 
 # p loop.height(boom)
 
-p loop.balanced?
+p loop.rebalance

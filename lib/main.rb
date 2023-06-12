@@ -28,8 +28,10 @@ loop.pretty_print
 
 # loop.level_order { |element| puts " #{element.data} ->" }
 
-p loop.postorder
+# p loop.postorder
 # loop.inorder{ |element| puts " #{element} ->" }
-loop.postorder{ |element| puts " #{element.data} ->" }
+# loop.postorder{ |element| puts " #{element.data} ->" }
 
-p loop.height(boom)
+# p loop.height(boom)
+
+p loop.balanced?

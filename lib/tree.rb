@@ -131,11 +131,18 @@ class Tree
     sum
   end
 
-  def height(node, sum = 0)
-    return sum if node.nil?
-    return 0 if node.right_node.nil? && node.left_node.nil?
-    height(node.left_node, sum + 1)
-    height(node.right_node, sum + 1)
+  def height(node)
+    return -1 if node.nil?
+
+    left_height = height(node.left_node)
+    right_height = height(node.right_node)
+    left_height > right_height ? left_height + 1 : right_height + 1
+  end
+
+  def balanced?
+    return true if height(@root.left_node) - height(@root.right_node) < 2
+    return true if height(@root.right_node) - height(@root.left_node) < 2
+    return false
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)
@@ -143,5 +150,4 @@ class Tree
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
     pretty_print(node.left_node, "#{prefix}#{is_left ? '    ' : '│   '}", true) if node.left_node
   end
-
 end

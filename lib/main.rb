@@ -1,37 +1,24 @@
 require_relative 'node'
 require_relative 'tree'
 require_relative 'comparable'
- look = Node.new(2)
- boom = Node.new(15)
- p Tree.new([1, 5, 6])
 
-arr = [0, 1, 3, 2, 4, 8, 21, 13]
-
-loop = Tree.new
-
-loop.build_tree(arr)
-
-p loop
-loop.pretty_print
-
-p "*****************************************************"
-
-loop.insert(15)
-loop.insert(5)
-loop.insert(-2)
-
-boom = loop.find(3)
-p boom
-
-# loop.delete(0)
-loop.pretty_print
-
-# loop.level_order { |element| puts " #{element.data} ->" }
-
-# p loop.postorder
-# loop.inorder{ |element| puts " #{element} ->" }
-# loop.postorder{ |element| puts " #{element.data} ->" }
-
-# p loop.height(boom)
-
-p loop.rebalance
+binary = Tree.new(Array.new(15) { rand(1..100) })
+binary.build_tree(binary.arr)
+binary.pretty_print
+p binary.balanced?
+p binary.inorder
+p binary.preorder
+p binary.postorder
+binary.insert(105)
+binary.insert(101)
+binary.insert(121)
+binary.insert(108)
+binary.pretty_print
+p binary.balanced?
+binary.rebalance
+p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+binary.pretty_print
+p binary.balanced?
+p binary.inorder
+p binary.preorder
+p binary.postorder

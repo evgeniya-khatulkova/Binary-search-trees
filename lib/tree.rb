@@ -94,7 +94,7 @@ class Tree
     yield(current) if block_given?
     arr << current.data
     inorder(current.right_node, arr, &block)
-    arr
+    arr.compact
   end
 
   def preorder(current = @root, arr = [], &block)
@@ -104,7 +104,7 @@ class Tree
     arr << current.data
     preorder(current.left_node, arr, &block)
     preorder(current.right_node, arr, &block)
-    arr
+    arr.compact
   end
 
   def postorder(current = @root, arr = [], &block)
@@ -114,7 +114,7 @@ class Tree
     postorder(current.right_node, arr, &block)
     yield(current) if block_given?
     arr << current.data
-    arr
+    arr.compact
   end
 
   def depth(value)
@@ -140,14 +140,16 @@ class Tree
   end
 
   def balanced?
-    return true if height(@root.left_node) - height(@root.right_node) < 2
-    return true if height(@root.right_node) - height(@root.left_node) < 2
-    return false
+    if height(@root.left_node) - height(@root.right_node) > -2 && height(@root.left_node) - height(@root.right_node) < 2
+      true
+    else
+      false
+    end
   end
 
   def rebalance
-    new_array = self.inorder
-    self.build_tree(new_array)
+    self.arr = inorder
+    self.root = build_tree(@arr)
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)

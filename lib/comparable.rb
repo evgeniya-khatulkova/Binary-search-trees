@@ -4,6 +4,8 @@ module Comparable
   end
 
   def bigger?(node_compare)
+    return if @data.nil?
+
     @data > node_compare ? true : false
   end
 end

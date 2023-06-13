@@ -81,7 +81,6 @@ class Tree
 
   def level_order(current_node = @root, arr = [])
     print "#{current_node.data} "
-  #  block_given? ? yield(current_node) : arr
     arr << current_node.left_node unless current_node.left_node.nil?
     arr << current_node.right_node unless current_node.right_node.nil?
     arr.empty? ? return : level_order(arr.shift, arr)
